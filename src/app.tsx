@@ -1,4 +1,10 @@
 import { createRoot } from 'react-dom/client';
 
-const root = createRoot(document.body);
-root.render(<h2>Hello from React!</h2>);
+import HomePage from './HomePage';
+
+const domNode = document.getElementById('app');
+const root = createRoot(domNode);
+
+root.render(
+  <HomePage />
+);
