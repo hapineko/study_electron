@@ -1,7 +1,10 @@
 import { useState } from "react";
 
 interface Window {
-  darkMode: any;
+  darkMode: {
+    toggle: () => boolean;
+    system: () => void;
+  }
 }
 declare var window: Window;
 
@@ -15,8 +18,8 @@ export default function HomePage() {
   }
 
   async function resetToSystem() {
-    await window.darkMode.system()
-    setMode('System');
+    await window.darkMode.system();
+    setMode("System");
   }
 
   return (
@@ -29,7 +32,9 @@ export default function HomePage() {
       <button id="toggle-dark-mode" onClick={toggleDarkMode}>
         Toggle Dark Mode
       </button>
-      <button id="reset-to-system" onClick={resetToSystem}>Reset to System Theme</button>
+      <button id="reset-to-system" onClick={resetToSystem}>
+        Reset to System Theme
+      </button>
     </div>
   );
 }
